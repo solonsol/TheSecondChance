@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="SCX, The Second Chance. The feeling of another shot after you already know what regret tastes like. Solana.">
+  <title>The Second Chance | SCX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-prophecy">
+  <!-- Almond clip for hero cosmic art (objectBoundingBox = scales with frame) -->
+  <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute">
+    <defs>
+      <clipPath id="heroEyeClip" clipPathUnits="objectBoundingBox">
+        <path d="M 0,0.5 Q 0.5,0.07 1,0.5 Q 0.5,0.93 0,0.5 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true">
+    <div class="scroll-progress-inner" id="scrollProgressInner"></div>
+  </div>
+  <div class="bg-body-shift" aria-hidden="true"></div>
+  <div class="bg-particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+  <div class="grain"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-dot"></span>
+      <span>THE SECOND CHANCE</span>
+    </a>
+    <nav class="nav">
+      <a href="#experiment">The clip</a>
+      <a href="#why">Why</a>
+      <a href="#instead">Instead</a>
+      <a href="#regret">Regret</a>
+      <a href="#chart">Pump.fun</a>
+      <a href="#buy">Buy</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#community">Community</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-small copy-btn" data-copy="comingsoon">Copy CA</button>
+  </header>
+
+  <main id="top">
+    <div class="hero-shell hero-shell--photo reveal" id="heroShell">
+      <div class="hero-bg-effects" aria-hidden="true">
+        <!-- Cosmic art clipped to soft almond “eye” silhouette -->
+        <div class="hero-photo-eye-frame">
+          <div class="hero-photo-bg"></div>
+        </div>
+        <!-- Deep space + fog (prophecy atmosphere) -->
+        <div class="hero-void"></div>
+        <div class="hero-mist hero-mist-back"></div>
+        <!-- Abstract eye mass: soft almond curves, buried in haze (not a literal eyeball) -->
+        <div class="hero-eye-mass">
+          <svg class="hero-eye-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="eyeStrokeGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stop-color="rgba(140, 130, 190, 0)" />
+                <stop offset="35%" stop-color="rgba(160, 150, 210, 0.14)" />
+                <stop offset="50%" stop-color="rgba(200, 190, 235, 0.1)" />
+                <stop offset="65%" stop-color="rgba(120, 110, 170, 0.12)" />
+                <stop offset="100%" stop-color="rgba(90, 85, 140, 0)" />
+              </linearGradient>
+              <filter id="eyeSoften" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
+              </filter>
+            </defs>
+            <path class="hero-eye-path hero-eye-path-upper" d="M 40 268 Q 500 72 960 268" fill="none" stroke="url(#eyeStrokeGrad)" stroke-width="1.4" filter="url(#eyeSoften)" />
+            <path class="hero-eye-path hero-eye-path-lower" d="M 40 268 Q 500 448 960 268" fill="none" stroke="url(#eyeStrokeGrad)" stroke-width="1.2" filter="url(#eyeSoften)" />
+            <ellipse class="hero-eye-haze" cx="500" cy="268" rx="420" ry="168" fill="url(#eyeStrokeGrad)" opacity="0.04" />
+          </svg>
+        </div>
+        <div class="hero-mist hero-mist-front"></div>
+        <!-- Nebula-style clouds: wispy upper lid, volumetric lower lid + glow (under stars) -->
+        <div class="hero-cloud-stack" aria-hidden="true">
+          <div class="hero-cloud hero-cloud-upper"></div>
+          <div class="hero-cloud hero-cloud-mid"></div>
+          <div class="hero-cloud hero-cloud-lower"></div>
+          <div class="hero-cloud hero-cloud-glow"></div>
+        </div>
+        <!-- Drifting star tiles over the photo (reads as depth / parallax; image stays static) -->
+        <div class="hero-starfield" aria-hidden="true">
+          <div class="hero-starfield-layer hero-starfield-layer--far"></div>
+          <div class="hero-starfield-layer hero-starfield-layer--near"></div>
+          <div class="hero-starfield-layer hero-starfield-layer--rim"></div>
+          <div class="hero-starfield-layer hero-starfield-layer--iris-twinkle"></div>
+        </div>
+        <!-- Slow prophecy pulses (iris / signal rings) -->
+        <div class="hero-pulse-rings">
+          <span class="hero-pulse-ring"></span>
+          <span class="hero-pulse-ring"></span>
+          <span class="hero-pulse-ring"></span>
+          <span class="hero-pulse-ring"></span>
+        </div>
+        <div class="hero-aurora"></div>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+        <!-- Watchful forms: arcs / lids brighten slightly on hover + scroll via JS class -->
+        <div class="hero-watchful">
+          <span class="watchful-arc watchful-arc-a"></span>
+          <span class="watchful-arc watchful-arc-b"></span>
+          <span class="watchful-glint"></span>
+        </div>
+        <div class="hero-grid"></div>
+        <div class="hero-shimmer"></div>
+      </div>
+      <div class="container hero-inner">
+        <!-- Iris / pupil glow behind headline (layered, readable) -->
+        <div class="hero-iris-stack" aria-hidden="true">
+          <div class="iris-vignette"></div>
+          <div class="iris-ring iris-ring-3"></div>
+          <div class="iris-ring iris-ring-2"></div>
+          <div class="iris-ring iris-ring-1"></div>
+          <div class="iris-core"></div>
+          <div class="iris-silver"></div>
+        </div>
+        <section class="hero">
+          <p class="label">The Second Chance · Solana</p>
+          <h1>
+            Close your eyes.<br>
+            Meet the version of you<br>
+            who waited too long.
+          </h1>
+          <p class="hero-sub">
+            You already know what hesitation feels like. You know what it costs.
+            The Second Chance is the name for the opposite feeling: another beat, right now, to move before the story hardens without you.
+            The clip below is where that idea lives. This page is what you do with it.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#buy">Buy Now</a>
+            <a class="btn btn-ghost" href="#chart">View on Pump.fun</a>
+            <a class="btn btn-ghost" href="#community">Join Community</a>
+            <button class="btn btn-ghost copy-btn" data-copy="comingsoon">Copy CA</button>
+          </div>
+          <button class="btn btn-ghost btn-small" id="audioToggle">Disable Background Audio</button>
+        </section>
+      </div>
+    </div>
+
+    <!-- Lighter continuation of motif below fold (no competing focal point) -->
+    <div class="post-hero-atmosphere" aria-hidden="true"></div>
+
+    <div class="rest-cosmos">
+      <div class="rest-cosmos-bg" aria-hidden="true">
+        <div class="rest-cosmos-violet"></div>
+        <div class="rest-cosmos-nebula"></div>
+        <div class="rest-cosmos-stars rest-cosmos-stars--far"></div>
+        <div class="rest-cosmos-stars rest-cosmos-stars--near"></div>
+        <div class="rest-cosmos-stars rest-cosmos-stars--dust"></div>
+      </div>
+      <div class="container">
+
+    <section id="chart" class="section reveal">
+      <h2>Pump.fun</h2>
+      <p class="chart-placeholder">
+        SCX trades on Pump.fun on Solana. Open the coin page to see the live bonding curve, chart, and swap with SOL.
+      </p>
+      <div class="pumpfun-actions">
+        <a class="btn" href="https://pump.fun" target="_blank" rel="noopener noreferrer">Open Pump.fun</a>
+        <p class="pumpfun-hint">After your coin is live, replace this button’s link in <code>index.html</code> with your <code>pump.fun/coin/&lt;mint&gt;</code> URL.</p>
+      </div>
+      <div class="chart-slot chart-slot-pump" aria-hidden="true"></div>
+    </section>
+
+    <section id="experiment" class="section reveal">
+      <h2>The clip</h2>
+      <p class="section-lead section-lead-tight">
+        SCX is named after a simple idea: you do not need a lecture on regret. You need a second chance. The reel below is the emotional spine of that idea. Watch it first. Everything else on this site assumes you have felt what it points at.
+      </p>
+      <div class="narrative">
+        <p>Imagine it is ten years from now.</p>
+        <p>Your life is the opposite of what you wanted.</p>
+        <p>You watched people move. You stayed still.</p>
+        <p>You saw moments. You called them luck.</p>
+        <p>You knew there was one window where action mattered.</p>
+        <p>You felt it. You delayed it. You lost it.</p>
+        <p class="line-break">Now open your eyes.</p>
+        <p class="line-break">This is that window.</p>
+      </div>
+      <p class="embed-label">Instagram</p>
+      <div class="embed-wrap instagram-wrap">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DVxRLxuiF2a/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/DVxRLxuiF2a/">View on Instagram</a>
+        </blockquote>
+      </div>
+      <p class="embed-label">Press coverage</p>
+      <a class="link-preview" href="https://www.timesnownews.com/viral/man-claims-this-45-second-experiment-could-change-your-life-leaves-internet-thinking-deep-viral-video-article-153901808" target="_blank" rel="noopener noreferrer">
+        <span class="link-preview-thumb" aria-hidden="true"></span>
+        <span class="link-preview-body">
+          <span class="link-preview-domain">timesnownews.com</span>
+          <span class="link-preview-title">The 45-second clip that went viral</span>
+          <span class="link-preview-desc">Close your eyes. Ten years forward. Then open them. That is the beat The Second Chance keeps returning to.</span>
+          <span class="link-preview-cta">Read on Times Now →</span>
+        </span>
+      </a>
+    </section>
+
+    <section id="why" class="section reveal">
+      <h2>Why This Coin</h2>
+      <div class="two-col">
+        <p>
+          The Second Chance is not a promise printed on a chart. It is the feeling of getting another shot after you already understand what missing one feels like. The clip is the proof that millions of people recognize that feeling without needing it explained.
+        </p>
+        <p>
+          SCX is timing and memory onchain. Cycles repeat: conviction looks stupid first, obvious later. The window rarely looks important while it is open. People stall, scroll, and wait for permission. This coin is for acting while the story is still quiet.
+        </p>
+      </div>
+      <div class="quote-box">
+        <p>Most people do not miss because they never see the door.</p>
+        <p>They miss because they fill the wait with small, forgettable things. Then the wait becomes the memory.</p>
+      </div>
+    </section>
+
+    <div class="signal-divider reveal" id="signal">
+      <p class="signal-divider-text">Most regret is not absence. It is substitution.</p>
+    </div>
+
+    <section id="instead" class="section section-instead reveal">
+      <p class="instead-kicker">Sidebar, not the thesis</p>
+      <h2>While it was happening</h2>
+      <p class="instead-lead">
+        One famous example of the same pattern: everyone knows what Bitcoin became. Few people like remembering what they were doing while it was obvious in the rearview. That humiliation is not the brand. It is context.
+      </p>
+      <ul class="instead-stack" aria-label="What people were doing instead">
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>scrolling</li>
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>waiting for certainty</li>
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>laughing at it</li>
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>telling yourself later</li>
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>watching from the sidelines</li>
+        <li class="instead-line"><span class="instead-marker" aria-hidden="true"></span>doing nothing worth remembering</li>
+      </ul>
+      <p class="bitcoin-punchline">While Bitcoin was blowing up, you were waiting. Now this is <strong class="brand-emphasis">The Second Chance</strong>.</p>
+      <p class="instead-close">Everybody has a Bitcoin excuse. Almost none of them age well. <strong class="brand-emphasis">The Second Chance</strong> is about catching that feeling before it repeats.</p>
+    </section>
+
+    <section id="regret" class="section reveal">
+      <h2>Future regret</h2>
+      <div class="regret-list">
+        <article class="regret-item">
+          <h3>One day they will remember exactly what they were doing instead.</h3>
+          <p>The trade blurs. The substitute does not.</p>
+        </article>
+        <article class="regret-item">
+          <h3>One day the signal will look painfully obvious in hindsight.</h3>
+          <p>The moment was there. The focus was somewhere smaller.</p>
+        </article>
+        <article class="regret-item">
+          <h3>One day they will wish this page had been their second chance.</h3>
+          <p>Memory edits itself. The chain does not.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section reveal">
+      <h2>Roadmap: Doubt to Regret</h2>
+      <div class="roadmap">
+        <article class="road-step">
+          <span>Phase 01</span>
+          <h3>Doubt</h3>
+          <p>Nobody gets it. A few buy anyway.</p>
+        </article>
+        <article class="road-step">
+          <span>Phase 02</span>
+          <h3>Attention</h3>
+          <p>Timeline catches fire. Charts get watched.</p>
+        </article>
+        <article class="road-step">
+          <span>Phase 03</span>
+          <h3>Obsession</h3>
+          <p>The same people who laughed now ask for entries.</p>
+        </article>
+        <article class="road-step">
+          <span>Phase 04</span>
+          <h3>Regret</h3>
+          <p>Outsiders replay this exact page in their head.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="community" class="section reveal">
+      <h2>Community</h2>
+      <p class="community-lead">
+        Conviction spreads in public. Join the SCX community on X and follow the coin on Pump.fun. That is where the narrative and the chart actually move.
+      </p>
+      <div class="community-grid">
+        <a class="community-card" href="https://x.com" target="_blank" rel="noopener noreferrer">
+          <span class="community-card-icon" aria-hidden="true">𝕏</span>
+          <span class="community-card-body">
+            <span class="community-card-title">X Community</span>
+            <span class="community-card-desc">Memes, updates, and the timeline where early conviction shows up first. Replace this link in <code>index.html</code> with your X Community URL when it’s live.</span>
+            <span class="community-card-cta">Open X →</span>
+          </span>
+        </a>
+        <a class="community-card" href="https://pump.fun" target="_blank" rel="noopener noreferrer">
+          <span class="community-card-icon community-card-icon-pump" aria-hidden="true">◆</span>
+          <span class="community-card-body">
+            <span class="community-card-title">Pump.fun</span>
+            <span class="community-card-desc">Live bonding curve, swaps, and the on-chain home for SCX. Swap the <code>href</code> to your <code>pump.fun/coin/&lt;mint&gt;</code> page when deployed.</span>
+            <span class="community-card-cta">Open Pump.fun →</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section id="faq" class="section reveal">
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Why this coin?</summary>
+          <p>
+            The market rarely rewards comfort. SCX stands for The Second Chance: acting while the signal is still quiet, after you already know what hesitation costs. The Instagram clip is part of why the project exists. It is the same emotional note, shared out loud.
+          </p>
+        </details>
+        <details>
+          <summary>What makes it different?</summary>
+          <p>
+            Most coins sell a fantasy exit. SCX sells a mirror: timing, accountability, and moving before the crowd needs your conviction to feel safe. No outcome is promised. The name is the thesis.
+          </p>
+        </details>
+        <details>
+          <summary>Why is Bitcoin on this page?</summary>
+          <p>
+            As one familiar picture of hindsight regret, not as the point of the brand. The main story is The Second Chance and the clip. Bitcoin shows up briefly as a cultural example of missing something big while busy with forgettable noise. SCX is not “the next Bitcoin” and nothing here compares returns.
+          </p>
+        </details>
+        <details>
+          <summary>What if I am still early?</summary>
+          <p>
+            Then you are where conviction is supposed to sting. No one can promise how this plays out. If you believe the narrative will spread, early is when the choice actually lands.
+          </p>
+        </details>
+      </div>
+    </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="footer-inner container">
+      <div class="buy-section" id="buy">
+        <p class="buy-kicker">Take The Second Chance</p>
+        <h2 class="buy-title">Buy SCX</h2>
+        <p class="buy-lead">Copy the contract address below, then follow the steps. You’ll use Phantom wallet and Pump.fun on Solana.</p>
+
+        <div class="contract-hero">
+          <p class="contract-hero-label">Contract address (Solana)</p>
+          <code class="contract-hero-code" id="contractAddress">comingsoon</code>
+          <button type="button" class="btn btn-copy-large copy-btn" data-copy="comingsoon">Copy contract address</button>
+        </div>
+
+        <div class="buy-steps">
+          <h3 class="buy-steps-title">How to buy, step by step</h3>
+          <ol class="buy-steps-list">
+            <li>
+              <strong>Get Phantom (Solana wallet).</strong> Go to <a href="https://phantom.app" target="_blank" rel="noopener noreferrer">phantom.app</a> and install the browser extension or mobile app. Create a new wallet, write down your recovery phrase offline, and never share it with anyone.
+            </li>
+            <li>
+              <strong>Add SOL for gas and the swap.</strong> Buy SOL on an exchange you trust, then withdraw to your Phantom <em>Solana</em> address. You need enough SOL for the purchase plus a small amount left over for network fees (fees are usually low, but keep a little extra).
+            </li>
+            <li>
+              <strong>Open Pump.fun.</strong> Visit <a href="https://pump.fun" target="_blank" rel="noopener noreferrer">pump.fun</a> in the same browser where Phantom is installed. Click <strong>Connect wallet</strong> and approve the connection in the Phantom popup.
+            </li>
+            <li>
+              <strong>Open the SCX coin page.</strong> Use the <strong>Open Pump.fun</strong> link in the Pump.fun section above once it points to your live coin, or use Pump’s search and paste the contract address you copied from this page so you don’t buy the wrong token.
+            </li>
+            <li>
+              <strong>Swap SOL for SCX.</strong> Enter how much SOL you want to spend, review the quote and slippage if shown, then confirm the transaction in Phantom. Wait for the Solana network to confirm. Your SCX balance will appear in Phantom under the token list (you may need to add the token manually using the contract address if it does not show up right away).
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <h3>The Second Chance (SCX)</h3>
+        <div class="socials">
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X Community">X</a>
+          <a href="https://pump.fun" target="_blank" rel="noopener noreferrer" aria-label="Pump.fun">Pump.fun</a>
+        </div>
+      </div>
+      <div class="contract-box contract-box-compact">
+        <p>Contract (quick copy)</p>
+        <code class="contract-compact-code">comingsoon</code>
+        <button type="button" class="btn btn-small copy-btn" data-copy="comingsoon">Copy</button>
+      </div>
+      <p class="source-link">
+        Source inspiration article:
+        <a href="https://www.timesnownews.com/viral/man-claims-this-45-second-experiment-could-change-your-life-leaves-internet-thinking-deep-viral-video-article-153901808" target="_blank" rel="noopener noreferrer">Original viral story (Times Now)</a>
+      </p>
+      <p class="disclaimer">
+        Meme coin culture. High volatility. No guaranteed outcomes. This is not financial advice.
+      </p>
+      <p class="copyright">© <span id="year"></span> SCX</p>
+    </div>
+  </footer>
+
+  <audio id="bgAudioEl" class="audio-frame" loop playsinline preload="auto">
+    <source src="scx-background.webm" type="audio/webm">
+    <source src="scx-background.mp3" type="audio/mpeg">
+  </audio>
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

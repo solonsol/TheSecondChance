@@ -1,0 +1,15 @@
+Background audio (local + YouTube Short)
+=========================================
+
+The file scx-background.webm is the audio track from:
+  https://www.youtube.com/shorts/aOhNqSnPv5Y
+
+Regenerate it (e.g. after you replace the Short) from the project folder:
+
+  .\tools\yt-dlp.exe -f ba -o "scx-background.%(ext)s" --no-playlist --force-overwrites "https://www.youtube.com/shorts/aOhNqSnPv5Y"
+
+That produces scx-background.webm (no ffmpeg required). The page also lists
+scx-background.mp3 as an optional second <source> if you export MP3 yourself
+for Safari / older browsers.
+
+Deployed sites use only these first-party audio files (no YouTube iframe on the page).
